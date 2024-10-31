@@ -1,0 +1,30 @@
+:root {
+    --blue: rgb(59, 99, 100);
+    --orange: rgb(194, 106, 60);
+    --brown: rgb(122, 74, 63);
+    --brighto: rgb(234, 149, 59);
+  }
+.header{
+    background-image: url("flowers.jpg");
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    margin:0%;
+}
+.link{
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  text-decoration: none;
+  margin-left: 2rem;
+  font-size: 1.3rem;
+}
+link:hover{
+  cursor: pointer;
+}
+body{
+  background-color: var(--blue);
+}
+p{
+  font-family: 'Times New Roman', Times, serif;
+}
