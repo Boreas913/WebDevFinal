@@ -5,14 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JqueryPage</title>
     <link rel="stylesheet" href="masterstyle.css">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div>
-    <a href="HomeResume.html">Home Resume Page</a>
-    <a href="CopyCssPage.html">Copy Cat page</a>
-    <a href="IdeaPage.html">My Idea Page</a>
+    <div class="header">
+        <a href="HomeResume.html" class="link">Home Resume Page</a>
+        <a href="CopyCssPage.html" class="link">Copy Cat page</a>
+        <a href="IdeaPage.html" class="link">My Idea Page</a>
     </div>
+    <div class="topForm">
+        <form id="row-form">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="text" id="age" placeholder="Age" required>
+            <input type="text" id="occupation" placeholder="Occupation" required>
+            <button type="submit" id="add-row-btn">Add Row</button>
+        </form>
+        </div>
+        <table id="dynamic-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Occupation</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
     
+            </tbody>
+        </table>
+    <style>
+    table {
+        width: 100%;
+        margin-top: 1rem;
+        border-collapse: collapse;
+        border: .2rem solid var(--orange);
+        color: white;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .topForm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem;
+    }
+    input[type=text] {
+        border: none;
+        color: white;
+        border-bottom: .1rem solid white;
+        background-color: var(--blue);
+        font-family: 'Times New Roman', Times, serif;
+    }
+    form{
+        padding: 1rem;
+        align-items: center;
+        display:flex;
+        align-items: center;
+        gap:2rem;
+    }
+    @media screen and (max-width: 600px) {
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    
+    th, td {
+        padding: 1rem;
+        text-align: left;
+    }
+    
+    button {
+        margin: .5rem;
+        background-color: var(--orange);
+        color: white;
+        border: none;
+        padding: .2rem;
+        border-radius: .2rem;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    </style>
+    <script>
+    $(document).ready(function() {
+        $('#row-form').submit(function(event) {
+            event.preventDefault(); 
+    
+            // Get values from form fields
+            let name = $('#name').val();
+            let age = $('#age').val();
+            let occupation = $('#occupation').val();
+            let newRow = `<tr>
+                            <td>${name}</td>
+                            <td>${age}</td>
+                            <td>${occupation}</td>
+                            <td><button class="delete-btn">Delete</button></td>
+                          </tr>`;//using code to write code--making a new row
+            $('#dynamic-table tbody').append(newRow);
+    
+            // Clear the form fields after adding the row
+            $('#row-form')[0].reset();
+        });
+    
+        $(document).on('click', '.delete-btn', function() {
+            $(this).closest('tr').remove();//finds first ancestor and removes it, thus, deletes the row
+        });
+    });
+    </script>   
 </body>
 </html>
