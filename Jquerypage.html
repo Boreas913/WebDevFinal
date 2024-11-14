@@ -17,7 +17,7 @@
     <a href="IdeaPage.html" class="link">My Idea Page</a>
 </div>  
     <div>
-      <input type="text" id="wordInput" placeholder="Enter a word" />
+      <input type="text" class="input" id="wordInput" placeholder="Enter a word" />
       <button onclick="searchWord()">Search</button>
       <button id="open-modal-btn">Create a new word</button>
     </div>
@@ -25,8 +25,22 @@
     <div id="entrymodal" class="modal">
         <div class="modal-content">
             <span id="close-modal-btn">&times;</span>
-            <h3>Enter the New Word, the Part of Speech, and the Definition</h3>
-            <!--Form boxes (3)-->
+            <h3 class="header">Enter the New Word, the Part of Speech, and the Definition</h3>
+            <form>
+              <div class="form-group">
+                <label for="word">New Word:</label>
+                <input type="text" id="word">
+            </div>
+            <div class="form-group">
+                <label for="speech">Part of Speech (noun, adverb, etc.):</label>
+                <input type="text" id="speech">
+            </div>
+            <div class="form-group">
+                <label for="definition">Definition:</label>
+                <input type="text" id="definition">
+            </div>
+            </form>
+            <button onclick="Addword()" class="bluebutton">Add Word</button>
         </div>
     </div>
     <table id="dictionaryTable">

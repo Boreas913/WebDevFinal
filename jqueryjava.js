@@ -90,3 +90,47 @@ $(document).ready(function() {
   });
 
 });
+
+function closeModal() {
+  $('#entrymodal').removeClass('show');
+}
+
+$(document).ready(function() {
+  // Open the modal with slide-in effect
+  $('#add-word-btn').click(function() {
+      
+  });
+});
+
+// Add products to <table>
+function Addword() {
+  const word = document.getElementById("word").value;
+  const speech = document.getElementById("speech").value;
+  const definition= document.getElementById("definition").value;
+  const tableBody = document.querySelector("#dictionaryTable tbody");
+
+    if (word.length > 0 && speech.length > 0 && definition.length > 0 &&
+      (speech == "noun" || speech == "pronoun" || speech == "verb" || 
+       speech == "adjective" || speech == "adverb" || 
+       speech == "preposition" || speech == "conjunction" || 
+       speech == "interjection")) {
+        
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${word}</td>
+        <td>${speech}</td>
+        <td>${definition}</td>
+      `;
+      tableBody.appendChild(row);
+      
+      document.getElementById("word").value = '';
+      document.getElementById("speech").value = '';
+      document.getElementById("definition").value = '';
+      
+      closeModal();
+    }
+  else {
+    alert("Invalid input. Please make sure all fields are filled and the part of speech is valid.");
+  }
+
+}
