@@ -1,4 +1,38 @@
+/* Modal overlay (hidden by default) */
+.modal {
+    display: block; /*block to enable sliding*/
+    position: fixed;
+    left: -200%; 
+    transition: left 0.5s ease; /* Smooth sliding effect */
+}
 
+/* Modal content */
+.modal-content {
+    background-color: var(--orange);
+    color: white;
+    padding: 1rem;
+    margin: 2rem;
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+    border-radius: .5rem;
+}
+
+/* Close button */
+#close-modal-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: -1rem;
+}
+
+/* Show the modal by sliding it in */
+.modal.show {
+    left: 0; /* Slide modal in from the left */
+}
+    
     table {
         width: 100%;
         margin-top: 1rem;
@@ -50,5 +84,5 @@
     }
 
     .highlight {
-      background-color: rgba(244, 244, 189, .3);
+      background-color: rgba(234, 149, 59, .8);
     }

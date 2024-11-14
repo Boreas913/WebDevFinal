@@ -3,22 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JqueryPage</title>
+    <title>JQueryPage</title>
     <link rel="stylesheet" href="masterstyle.css">
     <link rel="stylesheet" href="jquerystyle.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="jqueryjava.js"></script>
 </head>
 <body>
-    <div class="header">
-        <a href="HomeResume.html" class="link">Home Resume Page</a>
-        <a href="CopyCssPage.html" class="link">Copy Cat page</a>
-        <a href="IdeaPage.html" class="link">My Idea Page</a>
-    </div>  
-
-    <input type="text" id="wordInput" placeholder="Enter a word" />
-    <button onclick="fetchDefinition()">Search</button>
-
+  <div class="header">
+    <a href="HomeResume.html" class="link">Home Resume Page</a>
+    <a href="Jquerypage.html" class="link">JQuery Page</a>
+    <a href="CopyCssPage.html" class="link">Copy Cat Page</a>
+    <a href="IdeaPage.html" class="link">My Idea Page</a>
+</div>  
+    <div>
+      <input type="text" id="wordInput" placeholder="Enter a word" />
+      <button onclick="searchWord()">Search</button>
+      <button id="open-modal-btn">Create a new word</button>
+    </div>
+    <!-- Modal -->
+    <div id="entrymodal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal-btn">&times;</span>
+            <h3>Enter the New Word, the Part of Speech, and the Definition</h3>
+            <!--Form boxes (3)-->
+        </div>
+    </div>
     <table id="dictionaryTable">
       <thead>
         <tr>

@@ -1,31 +1,19 @@
 window.onload = tableDisplay;
 function tableDisplay(){
-    const initialWords = ["a", "aardvark", "aardwolf", "abaca", "abaft"];
-    initialWords.forEach(word => fetchDefinition(word)); //arrow function that assigns it to 'word' for the function
+    fetchDefinition("aardwolf");
+    fetchDefinition("aardvark");
+    fetchDefinition("abaca");
+    fetchDefinition("abaft");
 }
-$(document).ready(function() {
-    $('#wordInput').on('keyup', function() {
-        let searchTerm = $(this).val().toLowerCase();
-        $('#dictionaryTable tbody tr').each(function() {
-            let cellText = $(this).text().toLowerCase();
-            let cell = $(this);
 
-            // Check if the row contains the search term
-            if (cellText.includes(searchTerm)) {
-                // Highlight the letter and show row
-                let highlightedText = cellText.replace(new RegExp(searchTerm, 'gi'), function(match) {
-                    return `<span class="highlight">${match}</span>`;
-                });
-                    cell.html(highlightedText);
-            } else {
-                // Remove the highlight and hide the row
-                $(this).removeClass('highlight').hide();
-            }
-        });
-    });
-});
-  async function fetchDefinition() {
-    const word = document.getElementById("wordInput").value;
+function searchWord() {
+  const word = document.getElementById("wordInput").value;
+  if (word) {
+    fetchDefinition(word);
+  }
+}
+
+async function fetchDefinition(word) {
     const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     const tableBody = document.getElementById("dictionaryTable").querySelector("tbody");
 
@@ -53,4 +41,52 @@ $(document).ready(function() {
       row.innerHTML = `<td colspan="4">Error: ${error.message}</td>`;
       tableBody.appendChild(row);
     }
-  }   
+} 
+
+//adding words to the table from dictionary with each letter user types
+$(document).ready(function(){
+  $('#wordInput').on('keyup', function(){
+    let word = $(this).val().toLowerCase();
+  });
+});
+
+//searching what's on the table:
+$(document).ready(function() {
+    $('#wordInput').on('keyup', function() {
+        let searchTerm = $(this).val().toLowerCase();
+        $('#dictionaryTable tbody tr').each(function() {
+          let row = $(this);
+          let rowMatches = false;
+          row.find('td').each(function() {
+            let cell = $(this);
+            let cellText = cell.text().toLowerCase();
+            
+            // Check if the row contains the search term
+            if (cellText.includes(searchTerm) && searchTerm.length > 0) {
+              rowMatches = true;
+                // Highlight the letter and show row
+                let highlightedText = cellText.replace(new RegExp(searchTerm, 'gi'), function(match) {
+                    return `<span class="highlight">${match}</span>`;
+                });
+                    cell.html(highlightedText);
+            } else {
+                cell.html(cell.text());
+            }
+          });
+          row.toggle(rowMatches);
+        });
+    });
+});  
+
+$(document).ready(function() {
+  // Open the modal with slide-in effect
+  $('#open-modal-btn').click(function() {
+      $('#entrymodal').addClass('show');
+  });
+
+  // Close the modal when clicking the close button
+  $('#close-modal-btn').click(function() {
+      $('#entrymodal').removeClass('show');
+  });
+
+});
