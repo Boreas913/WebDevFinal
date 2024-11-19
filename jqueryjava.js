@@ -31,6 +31,9 @@ async function fetchDefinition(word) {
             <td>${data[0].word}</td>
             <td>${meaning.partOfSpeech}</td>
             <td>${def.definition}</td>
+            <td><button onclick="deleteData(this)">Delete</button>
+            <button onclick="edit(this)">Edit</button>
+            <td>
           `;
           tableBody.appendChild(row);
         });
@@ -43,12 +46,47 @@ async function fetchDefinition(word) {
     }
 } 
 
-//adding words to the table from dictionary with each letter user types
-$(document).ready(function(){
-  $('#wordInput').on('keyup', function(){
-    let word = $(this).val().toLowerCase();
-  });
-});
+function deleteData(button) {
+  // Get the parent row of the clicked button
+  let row = button.parentNode.parentNode;
+  // Remove the row from the table
+  row.parentNode.removeChild(row);
+  showPopup('Entry Deleted', 'success');
+}
+function edit(button) {
+   // Get the parent row of the clicked button
+   let row = button.parentNode.parentNode;
+
+   // Get the cells within the row
+   let wordCell = row.cells[0];
+   let speechCell = row.cells[1];
+   let defCell = row.cells[2];
+
+   // Prompt the user to enter updated values
+   let wordInput =
+       prompt("Enter the updated word:",
+           wordCell.innerHTML);
+   let speechInput =
+       prompt("Enter the updated part of speech:",
+           speechCell.innerHTML);
+   let defInput =
+       prompt("Enter the updated definition:",
+           defCell.innerHTML
+       );
+
+   // Update the cell contents with the new values
+   wordCell.innerHTML = wordInput;
+   speechCell.innerHTML = speechInput;
+   defCell.innerHTML = defInput;
+   showPopup('Entry edited', 'success');
+}
+
+function showPopup(message, type) {
+  // Set the message and class for success/fail
+  $('#popup').text(message).removeClass('success').addClass(type);
+  // Show the pop-up
+  $('#popup').fadeIn().delay(1000).fadeOut();
+}
 
 //searching what's on the table:
 $(document).ready(function() {

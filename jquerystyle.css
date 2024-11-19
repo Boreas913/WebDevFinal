@@ -1,3 +1,21 @@
+.popup {
+    display: none;
+    margin: 1rem;
+    position: fixed; /*stays put even when page scrolls*/
+    top: 2rem;
+    color: white;
+    padding: 1rem;
+    border-radius: .5rem;
+    font-size: .9rem;
+    z-index: 1000; /*appears over everything else*/
+    left: 45%;
+}
+
+/* Success and Fail styles */
+.success {
+    background-color: var(--brighto);
+}
+
 /* Modal overlay (hidden by default) */
 .modal {
     display: block; /*block to enable sliding*/
