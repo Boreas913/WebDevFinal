@@ -23,7 +23,7 @@
     </div>
     <!--success message-->
     <div id="popup" class="popup"></div>
-    <!-- Modal -->
+    <!-- Modal for adding a new word -->
     <div id="entrymodal" class="modal">
         <div class="modal-content">
             <span id="close-modal-btn">&times;</span>
@@ -43,14 +43,37 @@
             </div>
             </form>
             <button onclick="Addword()" class="bluebutton">Add Word</button>
+          </div>
+      </div>
+        <!--Modal for editing-->
+        <div id="editmodal" class="modal">
+          <div class="modal-content">
+              <span id="close-editmodal-btn">&times;</span>
+              <h3 class="header">Enter the Updated Word, the Part of Speech, and the Definition</h3>
+              <form id="editForm">
+                <div class="form-group">
+                  <label for="editword">Updated Word:</label>
+                  <input type="text" id="editword">
+              </div>
+              <div class="form-group">
+                  <label for="editspeech">Updated Part of Speech (noun, adverb, etc.):</label>
+                  <input type="text" id="editspeech">
+              </div>
+              <div class="form-group">
+                  <label for="editdefinition">Updated Definition:</label>
+                  <input type="text" id="editdefinition">
+              </div>
+              <button type="submit" class="bluebutton">Add Edits</button>
+              </form>
+          </div>
         </div>
-    </div>
     <table id="dictionaryTable">
       <thead>
         <tr>
-          <th>Word</th>
-          <th>Part of Speech</th>
-          <th>Definition</th>
+        <!--When a header is clicked, sort table 0 for sorting by Words, 1 for sorting by speech, 2 for definition: -->
+          <th onclick="sortTable(0)">Word</th>
+          <th onclick="sortTable(1)">Part of Speech</th>
+          <th onclick="sortTable(2)">Definition</th>
           <th></th>
         </tr>
       </thead>

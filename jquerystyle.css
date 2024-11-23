@@ -47,8 +47,17 @@
     background-color: var(--blue);
 }
 
-/* Close button */
+/* Close button for adding modal*/
 #close-modal-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: -1rem;
+}
+/* Close button for edit modal*/
+#close-editmodal-btn {
     position: absolute;
     top: 1rem;
     right: 1.5rem;
