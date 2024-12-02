@@ -1,0 +1,98 @@
+header {
+  height: 200vh;
+}
+p, h2 { 
+  color: white;
+}
+.container {
+  clip-path: inset(0 0 0 0);
+  overflow: hidden;
+  position: absolute;
+  height: 100vh;
+  left: 0;
+  width: 100%;
+  -webkit-mask-image: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 100%);
+}
+
+.container_solid {
+  background: var(--blue);
+  top: 0;
+}
+
+.title_wrapper {
+  position: fixed;
+  display: block;  
+  margin: auto;
+  width: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.title_wrapper h1 {
+  text-align: center;
+  font-size: 64px;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+}
+
+.container_solid .title_wrapper h1 {
+  background: url(https://images.pexels.com/photos/6479557/pexels-photo-6479557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+  background-size: 100vw auto;
+  background-position: center;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: var(--blue);
+}
+
+.container_image {
+  background-image: url(https://images.pexels.com/photos/6479557/pexels-photo-6479557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+  background-size:100vw auto;
+  background-position: center;
+  background-attachment: fixed;
+  top: 100vh;
+}
+
+.container_image .title_wrapper h1 {
+  color: var(--blue);
+}
+
+
+section h2 {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+section p {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.banner {
+	margin-left: calc(50% - 50vw);
+	width: 100vw; height: 62.5vmin;
+	min-height: 15em;
+	background: linear-gradient(#000, transparent, #000), 
+		var(--img) 50%/ cover;
+	background-attachment: fixed;
+	background-blend-mode: multiply;
+
+	&:nth-of-type(2) {
+		--img: url(https://images.pexels.com/photos/3700386/pexels-photo-3700386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
+  }
+	&:nth-of-type(3) {
+		--img: url(https://images.pexels.com/photos/69498/pexels-photo-69498.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
+  }
+	&:nth-of-type(4) {
+		--img: url(https://images.pexels.com/photos/3524048/pexels-photo-3524048.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
+  }
+	&:nth-of-type(5) {
+		--img: url(https://images.pexels.com/photos/462402/pexels-photo-462402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
+  }
+	&:nth-of-type(6) {
+		--img: url(https://images.pexels.com/photos/1212414/pexels-photo-1212414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
+  }
+	
+}

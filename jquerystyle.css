@@ -92,6 +92,7 @@
         border-bottom: .1rem solid white;
         background-color: var(--blue);
         font-family: 'Times New Roman', Times, serif;
+        margin-top: 5rem;
     }
     form{
         padding: 1rem;
