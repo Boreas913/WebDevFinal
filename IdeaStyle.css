@@ -5,13 +5,12 @@ p, h2 {
   color: white;
 }
 .container {
-  clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0); /*magic*/
   overflow: hidden;
   position: absolute;
   height: 100vh;
   left: 0;
   width: 100%;
-  -webkit-mask-image: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 100%);
 }
 
 .container_solid {
@@ -35,7 +34,7 @@ p, h2 {
   font-size: 64px;
   text-transform: uppercase;
   text-align: center;
-  font-family: 'Fraunces', serif;
+  font-family: 'Times New Roman', Times, serif;
   font-weight: 900;
 }
 
@@ -43,7 +42,7 @@ p, h2 {
   background: url(https://images.pexels.com/photos/6479557/pexels-photo-6479557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
   background-size: 100vw auto;
   background-position: center;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;/*magic*/
   background-clip: text;
   -webkit-background-clip: text;
   color: var(--blue);
@@ -61,7 +60,6 @@ p, h2 {
   color: var(--blue);
 }
 
-
 section h2 {
   font-family: 'Times New Roman', Times, serif;
 }
@@ -75,7 +73,7 @@ section p {
 	width: 100vw; height: 62.5vmin;
 	min-height: 15em;
 	background: linear-gradient(#000, transparent, #000), 
-		var(--img) 50%/ cover;
+		var(--img) 50%/ cover;/*magic*/
 	background-attachment: fixed;
 	background-blend-mode: multiply;
 
