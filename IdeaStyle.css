@@ -4,6 +4,9 @@ header {
 p, h2 { 
   color: white;
 }
+h2 {
+  font-style: italic;
+}
 .container {
   clip-path: inset(0 0 0 0); /*magic*/
   overflow: hidden;
@@ -22,6 +25,7 @@ p, h2 {
   position: fixed;
   display: block;  
   margin: auto;
+  /*exactly where I want it*/
   width: 100%;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -31,13 +35,14 @@ p, h2 {
 
 .title_wrapper h1 {
   text-align: center;
-  font-size: 64px;
+  font-size: 6rem;
   text-transform: uppercase;
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
   font-weight: 900;
 }
 
+/*"Flower Garden" that has image as color filled text and solid background*/
 .container_solid .title_wrapper h1 {
   background: url(https://images.pexels.com/photos/6479557/pexels-photo-6479557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
   background-size: 100vw auto;
@@ -48,6 +53,7 @@ p, h2 {
   color: var(--blue);
 }
 
+/*"Flower Garden" with background*/
 .container_image {
   background-image: url(https://images.pexels.com/photos/6479557/pexels-photo-6479557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
   background-size:100vw auto;
@@ -70,24 +76,24 @@ section p {
 
 .banner {
 	margin-left: calc(50% - 50vw);
-	width: 100vw; height: 62.5vmin;
-	min-height: 15em;
+	width: 100vw; 
+  height: 65vmin;
+	min-height: 30em;
 	background: linear-gradient(#000, transparent, #000), 
 		var(--img) 50%/ cover;/*magic*/
 	background-attachment: fixed;
-	background-blend-mode: multiply;
 
 	&:nth-of-type(2) {
 		--img: url(https://images.pexels.com/photos/3700386/pexels-photo-3700386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
   }
 	&:nth-of-type(3) {
-		--img: url(https://images.pexels.com/photos/69498/pexels-photo-69498.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
+		--img: url(https://images.pexels.com/photos/459488/pexels-photo-459488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
   }
 	&:nth-of-type(4) {
 		--img: url(https://images.pexels.com/photos/3524048/pexels-photo-3524048.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
   }
 	&:nth-of-type(5) {
-		--img: url(https://images.pexels.com/photos/462402/pexels-photo-462402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
+		--img: url(https://images.pexels.com/photos/29606689/pexels-photo-29606689/free-photo-of-beautiful-bouquet-of-white-and-orange-roses.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
   }
 	&:nth-of-type(6) {
 		--img: url(https://images.pexels.com/photos/1212414/pexels-photo-1212414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)

@@ -51,30 +51,43 @@ async function fetchDefinition(word) {
 //searching what's on the table:
 $(document).ready(function() {
   $('#wordInput').on('keyup', function() {
-      let searchTerm = $(this).val().toLowerCase();
-      $('#dictionaryTable tbody tr').each(function() {
-        let row = $(this);
-        let rowMatches = false;
+    let searchTerm = $(this).val().toLowerCase();
+    
+    $('#dictionaryTable tbody tr').each(function() {
+      let row = $(this);
+      let rowMatches = false;
+
+      // If the search term is empty, show all rows
+      if (searchTerm.length === 0) {
+        row.show();
         row.find('td').each(function() {
           let cell = $(this);
-          let cellText = cell.text().toLowerCase();
-          
-          // Check if the row contains the search term
-          if (cellText.includes(searchTerm) && searchTerm.length > 0) {
-            rowMatches = true;
-              // Highlight the letter and show row
-              let highlightedText = cellText.replace(new RegExp(searchTerm, 'gi'), function(match) {
-                  return `<span class="highlight">${match}</span>`;
-              });
-                  cell.html(highlightedText);
-          } else {
-              cell.html(cell.text());
-          }
+          cell.html(cell.text()); 
         });
-        row.toggle(rowMatches);
+        return;
+      }
+
+      row.find('td').each(function() {
+        let cell = $(this);
+        let cellText = cell.text().toLowerCase();
+        
+        if (cellText.includes(searchTerm)) {
+          rowMatches = true;
+
+          // Highlight the matching text
+          let highlightedText = cellText.replace(new RegExp(searchTerm, 'gi'), function(match) {
+            return `<span class="highlight">${match}</span>`;
+          });
+          cell.html(highlightedText);
+        } else {
+          cell.html(cell.text()); // Reset if no match
+        }
       });
+
+      row.toggle(rowMatches); // Show/hide the row based on matches
+    });
   });
-});  
+});
 
 // Add products to <table>:
 function Addword() {

@@ -11,7 +11,7 @@
     left: 45%;
 }
 
-/* Success and Fail styles */
+/* popup style */
 .success {
     background-color: var(--brighto);
 }
@@ -71,62 +71,67 @@
     left: 0; /* Slide modal in from the left */
 }
 
+th {
+    cursor: pointer;
+}
     
-    table {
-        width: 100%;
-        margin-top: 1rem;
-        border-collapse: collapse;
-        border: .2rem solid var(--orange);
-        color: white;
-        font-family: 'Times New Roman', Times, serif;
-    }
-    .topForm {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 2rem;
-    }
-    .input[type=text] {
-        border: none;
-        color: white;
-        border-bottom: .1rem solid white;
-        background-color: var(--blue);
-        font-family: 'Times New Roman', Times, serif;
-        margin-top: 5rem;
-    }
+table {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+    border: .2rem solid var(--orange);
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+.topForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+.input[type=text] {
+    border: none;
+    color: white;
+    border-bottom: .1rem solid white;
+    background-color: var(--blue);
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 5rem;
+}
+form{
+    padding: 1rem;
+    align-items: center;
+    display:flex;
+    align-items: center;
+    gap:2rem;
+}
+@media screen and (max-width: 600px) {
     form{
-        padding: 1rem;
-        align-items: center;
-        display:flex;
-        align-items: center;
-        gap:2rem;
+        display: flex;
+        flex-direction: column;
     }
-    @media screen and (max-width: 600px) {
-        form{
-            display: flex;
-            flex-direction: column;
-        }
-    }
-    
-    th, td {
-        padding: 1rem;
-        text-align: left;
-    }
-    
-    button {
-        margin: .5rem;
-        background-color: var(--orange);
-        color: white;
-        border: none;
-        padding: .2rem;
-        border-radius: .2rem;
-        font-family: 'Times New Roman', Times, serif;
-    }
-    button:hover {
-        background-color: var(--brighto);
-        cursor: pointer;
-      }
+}
 
-    .highlight {
-      background-color: rgba(234, 149, 59, .8);
-    }
+th, td {
+    padding: 1rem;
+    text-align: left;
+}
+
+button {
+    margin: .5rem;
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    padding: .2rem;
+    border-radius: .2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+button:hover {
+    background-color: var(--brighto);
+    cursor: pointer;
+  }
+  
+/*used for searching the table*/
+.highlight {
+  background-color: rgba(234, 149, 59, .8);
+}
